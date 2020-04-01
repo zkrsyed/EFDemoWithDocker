@@ -1,0 +1,49 @@
+-- Create a new table called '[TableName]' in schema '[dbo]'
+-- Drop the table if it already exists
+-- IF OBJECT_ID('[dbo].[Clans]', 'U') IS NOT NULL
+-- DROP TABLE [dbo].[Clans]
+-- GO
+-- -- Create the table in the specified schema
+-- CREATE TABLE [dbo].[Clans]
+-- (
+--     [Id] INT NOT NULL PRIMARY KEY, -- Primary Key column
+--     [ClanName] NVARCHAR(50) NOT NULL,
+--     -- Specify more columns here
+-- );
+-- GO
+
+-- -- Create a new table called '[Ninjas]' in schema '[dbo]'
+-- -- Drop the table if it already exists
+-- IF OBJECT_ID('[dbo].[Ninjas]', 'U') IS NOT NULL
+-- DROP TABLE [dbo].[Ninjas]
+-- GO
+-- -- Create the table in the specified schema
+-- CREATE TABLE [dbo].[Ninjas]
+-- (
+--     [Id] INT NOT NULL PRIMARY KEY, -- Primary Key column
+--     [Name] NVARCHAR(50) NOT NULL,
+--     [ServedInOniwaban] BIT,
+--     [ClanId] INT FOREIGN KEY REFERENCES Clans(Id)
+--         -- Specify more columns here
+-- );
+-- GO
+
+-- -- Create a new table called '[NinjaEquipments]' in schema '[dbo]'
+-- -- Drop the table if it already exists
+-- IF OBJECT_ID('[dbo].[NinjaEquipments]', 'U') IS NOT NULL
+-- DROP TABLE [dbo].[NinjaEquipments]
+-- GO
+-- -- Create the table in the specified schema
+-- CREATE TABLE [dbo].[NinjaEquipments]
+-- (
+--     [Id] INT NOT NULL PRIMARY KEY, -- Primary Key column
+--     [Name] NVARCHAR(50) NOT NULL,
+--     [Type] INT NOT NULL,
+--     [Ninja_Id] INT FOREIGN KEY REFERENCES Ninjas(Id)
+
+--     -- Specify more columns here
+-- );
+-- GO
+
+--Commands To connect to docker sqlserver instance
+--dotnet ef dbcontext scaffold "Server=localhost;Database=EFDemo;User Id= sa; Password=MyDocker123;" Microsoft.EntityFrameworkCore.SqlServer -o Models
